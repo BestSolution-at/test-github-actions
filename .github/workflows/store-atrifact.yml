@@ -1,0 +1,19 @@
+name: CI
+
+on: [create]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Produce an artifact
+      run: |
+        echo content > artifact.txt
+    - name: Store an artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: the-artifact
+        path: artifact.txt
