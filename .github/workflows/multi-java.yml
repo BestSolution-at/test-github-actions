@@ -26,6 +26,29 @@ jobs:
       run: |
         echo "Java 1.8: ${JAVA_HOME_8}"
         echo "Java 11: ${JAVA_HOME_11}"
+        
+    - name: write toolchains.xml
+      run: |
+        echo "<toolchains>" > ~/.m2/toolchains.xml
+        echo " <toolchain>" >> ~/.m2/toolchains.xml
+        echo "  <type>jdk</type>" >> ~/.m2/toolchains.xml
+        echo "  <provides>" >> ~/.m2/toolchains.xml
+        echo "   <version>1.8</version>" >> ~/.m2/toolchains.xml
+        echo "  </provides>" >> ~/.m2/toolchains.xml
+        echo "  <configuration>" >> ~/.m2/toolchains.xml
+        echo "   <jdkHome>${JAVA_HOME_8}</jdkHome>" >> ~/.m2/toolchains.xml
+        echo "  </configuration>" >> ~/.m2/toolchains.xml
+        echo " </toolchain>" >> ~/.m2/toolchains.xml
+        echo " <toolchain>" >> ~/.m2/toolchains.xml
+        echo "  <type>jdk</type>" >> ~/.m2/toolchains.xml
+        echo "  <provides>" >> ~/.m2/toolchains.xml
+        echo "   <version>11</version>" >> ~/.m2/toolchains.xml
+        echo "  </provides>" >> ~/.m2/toolchains.xml
+        echo "  <configuration>" >> ~/.m2/toolchains.xml
+        echo "   <jdkHome>${JAVA_HOME_11}</jdkHome>" >> ~/.m2/toolchains.xml
+        echo "  </configuration>" >> ~/.m2/toolchains.xml
+        echo " </toolchain>" >> ~/.m2/toolchains.xml
+        echo "</toolchains>" >> ~/.m2/toolchains.xml
     - name: output
       run: |
         ls -al ~/.m2
