@@ -26,4 +26,8 @@ jobs:
       run: |
         echo "Java 1.8: ${JAVA_HOME_8}"
         echo "Java 11: ${JAVA_HOME_11}"
-      
+    - name: output
+      run: |
+        ls -al ~/.m2
+        cat ~/.m2/settings.xml
+        cat ~/.m2/toolchains.xml
