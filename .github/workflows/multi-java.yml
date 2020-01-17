@@ -1,6 +1,6 @@
-name: CI
+name: multi-java
 
-on: [create]
+on: [create, push]
 
 jobs:
   build:
